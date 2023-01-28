@@ -12,7 +12,7 @@ const getProfile = async (user) => {
       );
 
       if (status === 200) {
-        return data.replace("(BR Region)", "");
+        return data.split(": ")[1];
       }
     } catch (e) {
       console.log(e);
@@ -21,7 +21,7 @@ const getProfile = async (user) => {
     return "Você digitou algo errado, tente algo como: /mdk rank LOUD aspas#LLL";
   }
 
-  return "Digite seu nick após a palavra rank, exemplo: /mdk rank LOUD aspas#LLL";
+  return "Digite seu nick completo após a palavra rank, exemplo: /mdk rank LOUD aspas#LLL";
 };
 
 export default getProfile;
