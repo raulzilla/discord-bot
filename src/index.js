@@ -22,6 +22,18 @@ client.on("ready", () => {
 });
 
 client.on("messageCreate", async (msg) => {
+  if (msg.content === `${configGeneral.prefix} help`) {
+    msg.reply({
+      ephemeral: false,
+      embeds: [
+        Alert("#FFCC00", configGeneral.help.join("\n"), {
+          name: "HELP",
+          iconURL: `https://cdn-icons-png.flaticon.com/512/4539/4539472.png`,
+        }),
+      ],
+    });
+  }
+
   if (verifyCapsLock(msg.content)) {
     msg.reply({ ephemeral: false, content: "🚫 Desative o CapsLock! 🚫" });
   }
@@ -30,15 +42,6 @@ client.on("messageCreate", async (msg) => {
     msg.reply({
       ephemeral: false,
       content: `Faltam ${travel()} dias para o pião de vida loka`,
-    });
-  }
-
-  if (msg.content === `${configGeneral.prefix} help`) {
-    msg.reply({
-      ephemeral: false,
-      content: `
-      * Utilize ${configGeneral.prefix} em todos comando\n* Para ver quanto tempo falta para nossa viagem digite: /mdk viagem
-    `,
     });
   }
 
