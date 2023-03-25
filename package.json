@@ -13,8 +13,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@discordjs/voice": "^0.14.0",
     "axios": "^1.2.2",
     "discord.js": "^14.7.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "ffmpeg-static": "^5.1.0",
+    "libsodium-wrappers": "^0.7.11",
+    "youtube-dl-exec": "^2.4.0"
   }
 }
