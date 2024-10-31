@@ -30,10 +30,10 @@ client.on("messageCreate", async (msg) => {
     msg.reply({
       ephemeral: false,
       embeds: [
-        Alert("#FFCC00", config.help.join("\n"), {
+        Alert("#FFCC00", false, {
           name: "HELP",
           iconURL: `https://cdn-icons-png.flaticon.com/512/4539/4539472.png`,
-        }),
+        }, config.help.join("\n")),
       ],
     });
   }
