@@ -78,7 +78,16 @@ client.on("messageCreate", async (msg) => {
   }
 
   if (msg.content.includes(`${config.prefix} comps`)) {
-    const comps = await getComps()
+    const messages = await msg.channel.messages.fetch();
+    const botAndMdkMessages = messages.filter(
+      m => (m.author.id === msg.client.user.id || m.content.includes(config.prefix))
+    );
+
+    botAndMdkMessages.delete(botAndMdkMessages.firstKey());
+
+    await msg.channel.bulkDelete(botAndMdkMessages, true).catch(console.error);
+
+    const comps = await getComps();
     msg.reply({
       ephemeral: false,
       embeds: [
