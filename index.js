@@ -62,7 +62,7 @@ client.on("messageCreate", async (msg) => {
         msg.reply({
           ephemeral: false,
           embeds: [
-            Alert("0x0099ff", `${getUser}`, {
+            Alert("#0099FF", getUser, {
               name: user,
               iconURL: `https://trackercdn.com/cdn/tracker.gg/valorant/icons/tiersv2/${verifyRank(rank)[0].id}.png`,
             }),
