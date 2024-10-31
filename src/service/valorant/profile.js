@@ -2,7 +2,8 @@ import axios from "axios";
 import feedback from "./../../config/feedback.js";
 
 const getProfile = async (user) => {
-  if (user && user.includes("#")) {
+  const isUser = user.includes("#")
+  if (user && isUser) {
     try {
       const splitUser = user.split("#");
       const nick = splitUser[0];
@@ -22,8 +23,6 @@ const getProfile = async (user) => {
     } catch (e) {
       return feedback.msgError;
     }
-
-    return feedback.msgError;
   }
 
   return "Digite seu nick completo após a palavra rank, exemplo: /mdk rank LOUD aspas#LLL";

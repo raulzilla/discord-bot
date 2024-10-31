@@ -4,9 +4,6 @@
   "description": "",
   "type": "module",
   "main": "index.js",
-  "engines": {
-    "node": "16.x.x"
-  },
   "scripts": {
     "start": "node src/index.js"
   },
@@ -15,9 +12,11 @@
   "devDependencies": {
     "@discordjs/voice": "^0.14.0",
     "axios": "^1.2.2",
-    "discord.js": "^14.7.1",
+    "discord.js": "^14.16.3",
     "dotenv": "^16.0.3",
     "ffmpeg-static": "^5.1.0",
+    "google-auth-library": "^9.14.2",
+    "google-spreadsheet": "^4.1.4",
     "libsodium-wrappers": "^0.7.11",
     "youtube-dl-exec": "^2.4.0"
   }
