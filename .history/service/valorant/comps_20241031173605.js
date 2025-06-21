@@ -19,7 +19,7 @@ const getComps = async () => {
 
     const response = sheet.map(item => {
       const row = item._rawData
-      if (row.length > 1 && row[0]) {
+      if (row.length > 1) {
         return {
           name: `🗺️ㅤ${row[0]}`,
           value: `${row.slice(1).join(", ")}\n\n`
