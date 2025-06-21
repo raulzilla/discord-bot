@@ -1,7 +1,6 @@
 import { config as CONFIG } from "dotenv";
 import Discord from "discord.js";
 import config from "./config/config.js";
-import travel from "./utils/travel.js";
 import verifyCapsLock from "./utils/verifyCapsLock.js";
 import getProfile from "./service/valorant/profile.js";
 import getComps from "./service/valorant/comps.js";
@@ -9,6 +8,7 @@ import Alert from "./components/alert.js";
 import Table from "./components/table.js";
 import verifyRank from "./utils/verifyRank.js";
 import feedback from "./config/feedback.js";
+import express from 'express';
 
 CONFIG();
 
@@ -40,13 +40,6 @@ client.on("messageCreate", async (msg) => {
 
   if (verifyCapsLock(msg.content)) {
     msg.reply({ ephemeral: false, content: "🚫 Desative o CapsLock! 🚫" });
-  }
-
-  if (msg.content === `${config.prefix} viagem`) {
-    msg.reply({
-      ephemeral: false,
-      content: `Faltam ${travel()} dias para o pião de vida loka`,
-    });
   }
 
   if (
@@ -98,3 +91,11 @@ client.on("messageCreate", async (msg) => {
 });
 
 client.login(process.env.TOKEN);
+
+const app = express();
+
+app.get('/', (_, res) => {
+  res.send('Bot está rodando!');
+});
+
+app.listen(3000);
