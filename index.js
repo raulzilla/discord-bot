@@ -4,6 +4,7 @@ import config from "./config/config.js";
 import verifyCapsLock from "./utils/verifyCapsLock.js";
 import getProfile from "./service/valorant/profile.js";
 import getComps from "./service/valorant/comps.js";
+import getAgents from "./service/valorant/agents.js";
 import Alert from "./components/alert.js";
 import Table from "./components/table.js";
 import verifyRank from "./utils/verifyRank.js";
@@ -87,6 +88,33 @@ client.on("messageCreate", async (msg) => {
         Table("#f04d59", comps),
       ],
     });
+  }
+
+  if (msg.content.includes(`${config.prefix} sort comp`)) {
+    const agents = await getAgents()
+
+    function sort5Items() {
+      const indexs = new Set();
+
+      Array.from({ length: agents.length * 3 }).forEach(() => {
+        const index = Math.round(Math.random() * (agents.length - 1));
+        indexs.add(index);
+      });
+
+      if (indexs.size < 5) {
+        Array.from({ length: arr.length }).forEach(() => {
+          if (indexs.size < 5) {
+            const index = Math.round(Math.random() * (arr.length - 1));
+            indexs.add(index);
+          }
+        });
+      }
+      const indexsFinal = Array.from(indexs).slice(0, 5);
+
+      return indexsFinal.map(i => arr[i]);
+    }
+
+    return sort5Items().join(', ')
   }
 });
 
