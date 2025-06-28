@@ -102,19 +102,19 @@ client.on("messageCreate", async (msg) => {
       });
 
       if (indexs.size < 5) {
-        Array.from({ length: arr.length }).forEach(() => {
+        Array.from({ length: agents.length }).forEach(() => {
           if (indexs.size < 5) {
-            const index = Math.round(Math.random() * (arr.length - 1));
+            const index = Math.round(Math.random() * (agents.length - 1));
             indexs.add(index);
           }
         });
       }
       const indexsFinal = Array.from(indexs).slice(0, 5);
 
-      return indexsFinal.map(i => arr[i]);
+      return indexsFinal.map(i => agents[i]);
     }
 
-    return sort5Items().join(', ')
+    return `Agentes sorteados 🎲: ${sort5Items().join(', ')}`
   }
 });
 
