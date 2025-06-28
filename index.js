@@ -114,7 +114,7 @@ client.on("messageCreate", async (msg) => {
       return indexsFinal.map(i => agents[i]);
     }
 
-    return `Agentes sorteados 🎲: ${sort5Items().join(', ')}`
+    msg.reply({ ephemeral: false, content: `Agentes sorteados 🎲: ${sort5Items().join(', ')}` });
   }
 });
 
