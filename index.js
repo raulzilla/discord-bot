@@ -90,7 +90,7 @@ client.on("messageCreate", async (msg) => {
     });
   }
 
-  if (msg.content.includes(`${config.prefix} sort comp`)) {
+  if (msg.content.includes(`${config.prefix} draw comp`)) {
     const agents = await getAgents()
 
     function sort5Items() {
