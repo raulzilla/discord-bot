@@ -7,7 +7,7 @@ const getAgents = async () => {
     );
 
     if (status === 200) {
-      return data.map(item => item.displayName)
+      return data.data.map(item => item.displayName)
     }
   } catch (e) {
     return 'Erro ao buscar agentes'
